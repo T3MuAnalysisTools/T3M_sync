@@ -9,13 +9,6 @@ from optparse import OptionParser
 
 from DisplayManager import DisplayManager
 
-# TODO (welcome by everybody):
-# - Please add more variables to varCfg.py if the default range finding doesn't
-#   give good results
-# - Add ratio plots (YT : 25 Jul done ... please feel free to modify)
-# - Extend this list :-)
-
-
 ROOT.gROOT.SetBatch(True)
 ROOT.gStyle.SetOptStat(0)
 
