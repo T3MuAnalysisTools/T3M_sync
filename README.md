@@ -1,5 +1,7 @@
 # T3M_sync
 
+ssh lxplus
+
 git clone git@github.com:T3MuAnalysisTools/T3M_sync.git
 
 and run it as: 
