@@ -1,1 +1,6 @@
+The input AOD file used to produce sync tree:
+/store/data/Run2017F/DoubleMuonLowMass/AOD/17Nov2017-v1/10000/EEC5ACC2-B802-E811-AF14-0CC47A0AD498.root
+
+
+The output sync tree is located in:
 /afs/cern.ch/work/c/cherepan/public/Sync_UF.root
