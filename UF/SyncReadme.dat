@@ -1,0 +1,79 @@
+
+----------------------------------------- Signal -----------------------------------------------------
+
+The input AOD file used to produce sync signal tree:
+process.source.fileNames = ['/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/50000/E89B5695-2561-E911-B61E-0242AC130002.ro\
+ot']
+
+
+The output sync tree is located in:
+/afs/cern.ch/work/c/cherepan/public/Sync_trees/Sync_signal_tree_UF.root
+
+
+
+
+
+----------------------------------------- Control Channel --------------------------------------------
+
+
+The input AOD files used to produce sync dsphipi tree:
+process.source.fileNames = ['root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_1.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_2.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_3.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_4.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_5.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_6.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_7.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_8.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_9.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_10.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_11.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_12.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_13.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_14.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_15.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_16.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_17.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_18.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_19.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_20.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_21.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_22.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_23.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_24.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_25.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_26.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_27.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_28.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_29.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_30.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_31.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_32.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_33.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_34.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_35.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_36.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_37.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_38.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_39.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_40.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_41.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_42.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_43.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_44.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_45.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_46.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_47.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_48.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_49.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_50.root]     
+
+
+
+
+The output sync tree is located in:
+/afs/cern.ch/work/c/cherepan/public/Sync_trees/Sync_dsphipi_tree_UF.root
+
+
+
+
