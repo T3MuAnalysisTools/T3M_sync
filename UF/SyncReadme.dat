@@ -10,6 +10,60 @@ The output sync tree is located in:
 /afs/cern.ch/work/c/cherepan/public/Sync_trees/Sync_signal_tree_UF.root
 
 
+The pre-selection includes: 
+for each muon:
+
+pT > 1 && |eta| < 2.4
+muon is PFMuon && (Tracker or Global)
+
+dz_12 && dz_31 && dz_23 < 0.8
+dr_12 && dr_31 && dr_23 < 0.5
+
+where 
+
+
+dz_12 =abs(Muon2->innerTrack()->dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(beamSpotHandle->position()));
+dr_12 = eltaR(Muon1->eta(), Muon1->phi(), Muon2->eta(), Muon2->phi()); 
+
+dz_31 =abs(Muon3->innerTrack()->dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(beamSpotHandle->position()));
+dr_31 = eltaR(Muon3->eta(), Muon3->phi(), Muon1->eta(), Muon1->phi()); 
+
+dz_23 =abs(Muon2->innerTrack()->dz(beamSpotHandle->position())-Muon3->innerTrack()->dz(beamSpotHandle->position()));
+dr_23 = eltaR(Muon2->eta(), Muon2->phi(), Muon3->eta(), Muon3->phi()); 
+
+
+| Charge | == 1
+
+
+A valid Kalman vertex with chi2 < 100
+
+HLT: DoubleMu3_Trk_Tau3mu
+
+
+
+
+Ntuple Content:
+
+
+  Sync_tree->Branch("evt",&evt);                                 - event number
+  Sync_tree->Branch("run",&run);                                 - run number
+  Sync_tree->Branch("lumi",&lumi);                               - lumi block
+
+  Sync_tree->Branch("sync_pt_1",&sync_pt_1);                     - Pt mu1  (pt sorting, so that Pt(mu1) > Pt(mu2) > Pt(mu3)
+  Sync_tree->Branch("sync_pt_2",&sync_pt_2);                     - Pt mu2
+  Sync_tree->Branch("sync_pt_3",&sync_pt_3);                     - Pt mu3
+  
+  Sync_tree->Branch("sync_eta_1",&sync_eta_1);                   - Eta mu1 (same sorting)
+  Sync_tree->Branch("sync_eta_2",&sync_eta_2);                   - Eta mu2
+  Sync_tree->Branch("sync_eta_3",&sync_eta_3);                   - Eta mu3
+
+  Sync_tree->Branch("muon_1_isGlob",&muon_1_isGlob);             - mu1 is global
+  Sync_tree->Branch("muon_2_isGlob",&muon_2_isGlob);             - mu2 is global
+  Sync_tree->Branch("muon_3_isGlob",&muon_3_isGlob);             - mu3 is global
+
+  Sync_tree->Branch("muon_1_isTrack",&muon_1_isTrack);           - mu1 is tracker 
+  Sync_tree->Branch("muon_2_isTrack",&muon_2_isTrack);           - mu2 is tracker
+  Sync_tree->Branch("muon_3_isTrack",&muon_3_isTrack);           - mu3 is tracker
 
 
 
@@ -21,53 +75,9 @@ process.source.fileNames = ['root://cms-xrd-global.cern.ch//store/user/fsimone/D
                             'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_2.root',
                             'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_3.root',
                             'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_4.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_5.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_6.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_7.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_8.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_9.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_10.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_11.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_12.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_13.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_14.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_15.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_16.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_17.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_18.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_19.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_20.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_21.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_22.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_23.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_24.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_25.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_26.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_27.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_28.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_29.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_30.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_31.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_32.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_33.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_34.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_35.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_36.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_37.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_38.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_39.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_40.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_41.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_42.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_43.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_44.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_45.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_46.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_47.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_48.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_49.root',
-                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_50.root]     
-
+                                   ........
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_99.root',
+                            'root://cms-xrd-global.cern.ch//store/user/fsimone/DsPhiPi/crab_crab_DsPhiPi_13TeV_RECO/190225_141742/0000/DsPhiPi_13TeV_RECO_100.root']
 
 
 
@@ -76,4 +86,75 @@ The output sync tree is located in:
 
 
 
+The selection:
 
+first check if there are at least two muons in the events with:
+
+pT > 1 && |eta| < 2.4
+muon is PFMuon && (Tracker or Global)
+
+and 
+
+dr_12 < 0.5 && dz_12 < 0.8
+ 
+
+Search for a track with requirements:
+
+pT  > 1 && |eta| < 2.4 &&
+track.hitPattern().trackerLayersWithMeasurement()>5
+track.hitPattern().pixelLayersWithMeasurement()>1
+abs(track.dxy(beamSpotHandle->position())) < .3
+abs(track.dz(beamSpotHandle->position())) < 20
+
+
+double dz23 = abs(track.dz(beamSpotHandle->position())-Muon2->innerTrack()->dz(beamSpotHandle->position()));  // if the POCA of the track candidate is far from the muons - continue
+double dz31 = abs(track.dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(beamSpotHandle->position()));
+
+
+double dr23 = deltaR(track.eta(), track.phi(), Muon2->eta(), Muon2->phi());
+double dr31 = deltaR(track.eta(), track.phi(), Muon1->eta(), Muon1->phi());
+
+
+dr23 && dr31 < 1.2
+dr23 && dr31 > 0.02 (to avoid catching the track from already selected muon)
+
+|Charge| == 1
+
+
+then the combinations are performed, for example if there are two muons in the event **  and three tracks pass the selection above #,%,$
+then we keep three candidates: **#, **%, **$
+
+if there are more than 2 muons we also permute muons, but there are not many of such events, for reference please have a look how we fill it:
+https://github.com/T3MuAnalysisTools/DsTau23Mu/blob/master/T3MNtuple/plugins/T3MNtuple.cc#L1551-L1585
+
+
+then the final candidate is the one with smallest KF vertex Chi2
+
+
+the mass of mu-mu pair:   0.95 < M < 1.1
+
+HLT: DoubleMu3_Trk_Tau3mu
+
+
+
+
+Ntuple content: 
+
+
+  Sync_tree->Branch("sync_pt_1",&sync_pt_1);   - Pt of mu1 (Pt(mu1) > Pt(mu2))
+  Sync_tree->Branch("sync_pt_2",&sync_pt_2);   - Pt of mu2
+  Sync_tree->Branch("sync_pt_3",&sync_pt_3);   - Pt of track 
+
+  Sync_tree->Branch("sync_eta_1",&sync_eta_1); - eta of mu1 (same sorting)
+  Sync_tree->Branch("sync_eta_2",&sync_eta_2); - eta of mu2 
+  Sync_tree->Branch("sync_eta_3",&sync_eta_3); - eta of track 
+
+  Sync_tree->Branch("phi_mass",&phi_mass);     - M(mu1 + mu2 + track)
+  Sync_tree->Branch("ds_mass",&ds_mass);       - M(mu1 + mu2 + track)
+
+  Sync_tree->Branch("evt",&evt);               - event number (evt must! be in the ntuple to run synchronization)
+  Sync_tree->Branch("run",&run);               - run number
+  Sync_tree->Branch("lumi",&lumi);             - lumi block
+
+
+ 
