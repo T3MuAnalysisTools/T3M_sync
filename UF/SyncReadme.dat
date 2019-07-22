@@ -22,8 +22,8 @@ for each muon:
 pT > 1 && |eta| < 2.4
 muon is PFMuon && (Tracker or Global)
 
-dz_12 && dz_31 && dz_23 < 0.8
-dr_12 && dr_31 && dr_23 < 0.5
+dz_12 && dz_31 && dz_23 < 0.5
+dr_12 && dr_31 && dr_23 < 0.8
 
 where 
 
@@ -101,7 +101,7 @@ muon is PFMuon && (Tracker or Global)
 
 and 
 
-dr_12 < 0.5 && dz_12 < 0.8
+dr_12 < 0.8 && dz_12 < 0.5
  
 
 Search for a track with requirements:
