@@ -1,0 +1,80 @@
+----------------------------------------- Signal -----------------------------------------------------
+
+The input AOD file used to produce sync signal tree:
+
+process.source.fileNames 
+= ['/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/110000/08CD692D-A747-E911-AED9-3CFDFE6366E0.root',
+   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/110000/4604F75D-A647-E911-863A-1866DA85D9A3.root',
+   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/70000/3E402898-4E46-E911-8D40-1866DA85DACC.root',
+   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/70000/BC22FAED-ED46-E911-A0BB-F01FAFDC49B6.root',
+   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/70000/5C95DF7B-2048-E911-B14C-008CFA0A5844.root']
+
+
+
+The output sync tree is located in:
+/afs/cern.ch/work/r/rosma/public/INFN_SynchTree.root
+
+
+The pre-selection includes: 
+for each muon:
+
+pT > 1 && |eta| < 2.4
+muon is PFMuon && (Tracker or Global)
+
+dz_12 && dz_31 && dz_23 < 0.5
+dr_12 && dr_31 && dr_23 < 0.8
+
+where 
+
+
+dz_12 =abs(Muon2->vz()-Muon1->vz())  //Slightly different wrt UF
+dr_12 = deltaR(Muon1->eta(), Muon1->phi(), Muon2->eta(), Muon2->phi()); 
+
+dz_31 =abs(Muon3->vz()-Muon1->vz()) //Slightly		 different wrt UF
+dr_31 = eltaR(Muon3->eta(), Muon3->phi(), Muon1->eta(), Muon1->phi()); 
+
+dz_23 =abs(Muon2->vz()-Muon3->vz())  //Slightly		different wrt UF
+dr_23 = eltaR(Muon2->eta(), Muon2->phi(), Muon3->eta(), Muon3->phi()); 
+
+
+| Charge | == 1
+
+
+A valid Kalman vertex with chi2 < 100
+
+HLT: DoubleMu3_Trk_Tau3mu
+
+
+
+
+Ntuple Content:
+
+
+  Sync_tree->Branch("evt",&evt);                                 - event number
+  Sync_tree->Branch("run",&run);                                 - run number
+  Sync_tree->Branch("lumi",&lumi);                               - lumi block
+
+  Sync_tree->Branch("sync_pt_1",&sync_pt_1);                     - Pt mu1  (pt sorting, so that Pt(mu1) > Pt(mu2) > Pt(mu3)
+  Sync_tree->Branch("sync_pt_2",&sync_pt_2);                     - Pt mu2
+  Sync_tree->Branch("sync_pt_3",&sync_pt_3);                     - Pt mu3
+  
+  Sync_tree->Branch("sync_eta_1",&sync_eta_1);                   - Eta mu1 (same sorting)
+  Sync_tree->Branch("sync_eta_2",&sync_eta_2);                   - Eta mu2
+  Sync_tree->Branch("sync_eta_3",&sync_eta_3);                   - Eta mu3
+
+  tree->Branch("sync_ThreeMuVtx_x", &ThreeMuVtx_x);              -Coordinates of the triplet candidate after vertex refit
+  tree->Branch("sync_ThreeMuVtx_y", &ThreeMuVtx_y);
+  tree->Branch("sync_ThreeMuVtx_z", &ThreeMuVtx_z);
+  tree->Branch("sync_ThreeMuVtx_Chi2", &ThreeMuVtx_Chi2);        -Vertex chi2 of the triplet candidate after vertex refit
+
+
+
+
+///Still to be included
+  Sync_tree->Branch("muon_1_isGlob",&muon_1_isGlob);             - mu1 is global
+  Sync_tree->Branch("muon_2_isGlob",&muon_2_isGlob);             - mu2 is global
+  Sync_tree->Branch("muon_3_isGlob",&muon_3_isGlob);             - mu3 is global
+
+  Sync_tree->Branch("muon_1_isTrack",&muon_1_isTrack);           - mu1 is tracker 
+  Sync_tree->Branch("muon_2_isTrack",&muon_2_isTrack);           - mu2 is tracker
+  Sync_tree->Branch("muon_3_isTrack",&muon_3_isTrack);           - mu3 is tracker
