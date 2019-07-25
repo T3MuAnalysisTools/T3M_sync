@@ -71,6 +71,11 @@ Ntuple Content:
   Sync_tree->Branch("muon_2_isTrack",&muon_2_isTrack);           - mu2 is tracker
   Sync_tree->Branch("muon_3_isTrack",&muon_3_isTrack);           - mu3 is tracker
 
+  Sync_tree->Branch("sync_ThreeMuVtx_x",&sync_ThreeMuVtx_x);
+  Sync_tree->Branch("sync_ThreeMuVtx_y",&sync_ThreeMuVtx_y);
+  Sync_tree->Branch("sync_ThreeMuVtx_z",&sync_ThreeMuVtx_z);
+  Sync_tree->Branch("sync_ThreeMuVtx_Chi2",&sync_ThreeMuVtx_Chi2);
+
 
 
 ----------------------------------------- Control Channel --------------------------------------------
@@ -162,5 +167,10 @@ Ntuple content:
   Sync_tree->Branch("run",&run);               - run number
   Sync_tree->Branch("lumi",&lumi);             - lumi block
 
+
+  Sync_tree->Branch("sync_DsPhiPiVtx_x",&sync_DsPhiPiVtx_x);
+  Sync_tree->Branch("sync_DsPhiPiVtx_y",&sync_DsPhiPiVtx_y);
+  Sync_tree->Branch("sync_DsPhiPiVtx_z",&sync_DsPhiPiVtx_z);
+  Sync_tree->Branch("sync_DsPhiPiVtx_Chi2",&sync_DsPhiPiVtx_Chi2);
 
  
