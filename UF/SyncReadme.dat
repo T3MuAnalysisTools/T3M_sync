@@ -3,12 +3,14 @@
 
 The input AOD file used to produce sync signal tree:
 
-process.source.fileNames 
-= ['/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/110000/08CD692D-A747-E911-AED9-3CFDFE6366E0.root',
-   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/110000/4604F75D-A647-E911-863A-1866DA85D9A3.root',
-   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/70000/3E402898-4E46-E911-8D40-1866DA85DACC.root',
-   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/70000/BC22FAED-ED46-E911-A0BB-F01FAFDC49B6.root',
-   '/store/mc/RunIIFall17DRPremix/DsToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/70000/5C95DF7B-2048-E911-B14C-008CFA0A5844.root']
+
+process.source.fileNames = 
+['/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/AC2BE19D-A946-E911-B9D1-0CC47A5FBE31.root',
+ '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/B854E6AE-A946-E911-A2BE-0CC47A5FA3B9.root',
+ '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/92305211-F247-E911-9D1D-0CC47A5FC679.root',
+ '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/16D24F4C-1C47-E911-BE09-549F351EDC46.root',
+ '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/2710000/8446C82F-6B46-E911-B9A7-0242AC1C0502.root']
+
 
 
 
@@ -28,14 +30,28 @@ dr_12 && dr_31 && dr_23 < 0.8
 where 
 
 
-dz_12 =abs(Muon2->innerTrack()->dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(beamSpotHandle->position()));
-dr_12 = eltaR(Muon1->eta(), Muon1->phi(), Muon2->eta(), Muon2->phi()); 
+--------------------------- like INFN ---------------
 
-dz_31 =abs(Muon3->innerTrack()->dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(beamSpotHandle->position()));
+dz_12 =abs(Muon2->vz()-Muon1->vz())  
+dr_12 = deltaR(Muon1->eta(), Muon1->phi(), Muon2->eta(), Muon2->phi()); 
+
+dz_31 =abs(Muon3->vz()-Muon1->vz()) 
 dr_31 = eltaR(Muon3->eta(), Muon3->phi(), Muon1->eta(), Muon1->phi()); 
 
-dz_23 =abs(Muon2->innerTrack()->dz(beamSpotHandle->position())-Muon3->innerTrack()->dz(beamSpotHandle->position()));
+dz_23 =abs(Muon2->vz()-Muon3->vz()) 
 dr_23 = eltaR(Muon2->eta(), Muon2->phi(), Muon3->eta(), Muon3->phi()); 
+
+
+
+--------------------------- UF ----------------------
+#dz_12 =abs(Muon2->innerTrack()->dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(beamSpotHandle->position()));
+#dr_12 = eltaR(Muon1->eta(), Muon1->phi(), Muon2->eta(), Muon2->phi()); 
+
+#dz_31 =abs(Muon3->innerTrack()->dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(beamSpotHandle->position()));
+#dr_31 = eltaR(Muon3->eta(), Muon3->phi(), Muon1->eta(), Muon1->phi()); 
+
+#dz_23 =abs(Muon2->innerTrack()->dz(beamSpotHandle->position())-Muon3->innerTrack()->dz(beamSpotHandle->position()));
+#dr_23 = eltaR(Muon2->eta(), Muon2->phi(), Muon3->eta(), Muon3->phi()); 
 
 
 | Charge | == 1
