@@ -141,6 +141,7 @@ double dz31 = abs(track.dz(beamSpotHandle->position())-Muon1->innerTrack()->dz(b
 double dr23 = deltaR(track.eta(), track.phi(), Muon2->eta(), Muon2->phi());
 double dr31 = deltaR(track.eta(), track.phi(), Muon1->eta(), Muon1->phi());
 
+dz23 && dz31 < 0.5
 
 dr23 && dr31 < 1.2
 dr23 && dr31 > 0.02 (to avoid catching the track from already selected muon)
