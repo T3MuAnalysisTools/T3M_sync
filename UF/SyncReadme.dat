@@ -1,21 +1,8 @@
 
 ----------------------------------------- Signal -----------------------------------------------------
 
-The input AOD file used to produce sync signal tree:
+The input AOD file used to produce sync signal tree:   RunD 
 
-
-process.source.fileNames = 
-['/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/AC2BE19D-A946-E911-B9D1-0CC47A5FBE31.root',
- '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/B854E6AE-A946-E911-A2BE-0CC47A5FA3B9.root',
- '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/92305211-F247-E911-9D1D-0CC47A5FC679.root',
- '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/270000/16D24F4C-1C47-E911-BE09-549F351EDC46.root',
- '/store/mc/RunIIFall17DRPremix/BdToTau_To3Mu_MuFilter_TuneCUEP8M1_13TeV-pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/2710000/8446C82F-6B46-E911-B9A7-0242AC1C0502.root']
-
-
-
-
-The output sync tree is located in:
-/afs/cern.ch/work/c/cherepan/public/Sync_trees/Sync_signal_tree_UF.root
 
 
 The pre-selection includes: 
@@ -40,7 +27,7 @@ dr_31 = eltaR(Muon3->eta(), Muon3->phi(), Muon1->eta(), Muon1->phi());
 
 dz_23 =abs(Muon2->vz()-Muon3->vz()) 
 dr_23 = eltaR(Muon2->eta(), Muon2->phi(), Muon3->eta(), Muon3->phi()); 
-
+| Charge | == 1
 
 
 --------------------------- UF ----------------------
@@ -54,43 +41,26 @@ dr_23 = eltaR(Muon2->eta(), Muon2->phi(), Muon3->eta(), Muon3->phi());
 #dr_23 = eltaR(Muon2->eta(), Muon2->phi(), Muon3->eta(), Muon3->phi()); 
 
 
-| Charge | == 1
+
 
 
 A valid Kalman vertex with chi2 < 100
 
-HLT: DoubleMu3_Trk_Tau3mu
+HLT: HLT.Contains("DoubleMu3_Trk_Tau3mu_v")  or HLT.Contains("DoubleMu3_TkMu_DsTau3Mu_v")  or HLT.Contains("DoubleMu3_Trk_Tau3mu_NoL1Mass_v")
+L1 : L1TriggerName.Contains("L1_DoubleMu0er1p5_SQ_OS_dR_Max1p4"))                
+     L1TriggerName.Contains("L1_TripleMu_5SQ_3SQ_0_DoubleMu_5_3_SQ_OS_Mass_Max9")
+
 
 
 
 
 Ntuple Content:
 
+  Sync_tree->Branch("evt",&evt);                                     - event number
+  Sync_tree->Branch("run",&run);                                     - run number
+  Sync_tree->Branch("lumi",&lumi);                                   - lumi block
+  Sync_tree->Branch("NCands",&NCands);                               - Numver of Signal Candidates at this step
 
-  Sync_tree->Branch("evt",&evt);                                 - event number
-  Sync_tree->Branch("run",&run);                                 - run number
-  Sync_tree->Branch("lumi",&lumi);                               - lumi block
-
-  Sync_tree->Branch("sync_pt_1",&sync_pt_1);                     - Pt mu1  (pt sorting, so that Pt(mu1) > Pt(mu2) > Pt(mu3)
-  Sync_tree->Branch("sync_pt_2",&sync_pt_2);                     - Pt mu2
-  Sync_tree->Branch("sync_pt_3",&sync_pt_3);                     - Pt mu3
-  
-  Sync_tree->Branch("sync_eta_1",&sync_eta_1);                   - Eta mu1 (same sorting)
-  Sync_tree->Branch("sync_eta_2",&sync_eta_2);                   - Eta mu2
-  Sync_tree->Branch("sync_eta_3",&sync_eta_3);                   - Eta mu3
-
-  Sync_tree->Branch("muon_1_isGlob",&muon_1_isGlob);             - mu1 is global
-  Sync_tree->Branch("muon_2_isGlob",&muon_2_isGlob);             - mu2 is global
-  Sync_tree->Branch("muon_3_isGlob",&muon_3_isGlob);             - mu3 is global
-
-  Sync_tree->Branch("muon_1_isTrack",&muon_1_isTrack);           - mu1 is tracker 
-  Sync_tree->Branch("muon_2_isTrack",&muon_2_isTrack);           - mu2 is tracker
-  Sync_tree->Branch("muon_3_isTrack",&muon_3_isTrack);           - mu3 is tracker
-
-  Sync_tree->Branch("sync_ThreeMuVtx_x",&sync_ThreeMuVtx_x);
-  Sync_tree->Branch("sync_ThreeMuVtx_y",&sync_ThreeMuVtx_y);
-  Sync_tree->Branch("sync_ThreeMuVtx_z",&sync_ThreeMuVtx_z);
-  Sync_tree->Branch("sync_ThreeMuVtx_Chi2",&sync_ThreeMuVtx_Chi2);
 
 
 
